@@ -26,6 +26,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.blacksquircle.ui.core.ui.adapters.OnItemClickListener
 import com.blacksquircle.ui.core.ui.delegate.viewBinding
+import com.blacksquircle.ui.core.ui.extensions.getColorAttr
 import com.blacksquircle.ui.feature.settings.R
 import com.blacksquircle.ui.feature.settings.databinding.FragmentHeadersBinding
 import com.blacksquircle.ui.feature.settings.ui.adapters.PreferenceAdapter
@@ -46,6 +47,7 @@ class HeadersFragment : Fragment(R.layout.fragment_headers) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.setBackgroundColor(requireContext().getColorAttr(android.R.attr.colorBackground))
         observeViewModel()
 
         binding.recyclerView.setHasFixedSize(true)

@@ -45,7 +45,7 @@ class CodeView @JvmOverloads constructor(
     private fun colorize() {
         themeModel?.let {
             setTextColor(it.colorScheme.textColor)
-            // setBackgroundColor(it.colorScheme.backgroundColor)
+//            setBackgroundColor(it.colorScheme.backgroundColor)
         }
     }
 

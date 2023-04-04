@@ -37,6 +37,7 @@ import com.afollestad.materialdialogs.color.ColorPalette
 import com.afollestad.materialdialogs.color.colorChooser
 import com.blacksquircle.ui.core.ui.adapters.OnItemClickListener
 import com.blacksquircle.ui.core.ui.delegate.viewBinding
+import com.blacksquircle.ui.core.ui.extensions.getColorAttr
 import com.blacksquircle.ui.core.ui.extensions.showToast
 import com.blacksquircle.ui.core.ui.extensions.toHexString
 import com.blacksquircle.ui.core.ui.viewstate.ViewEvent
@@ -70,6 +71,7 @@ class NewThemeFragment : Fragment(R.layout.fragment_new_theme) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setHasOptionsMenu(true)
         if (savedInstanceState == null) {
             viewModel.fetchProperties(navArgs.uuid)
@@ -78,6 +80,7 @@ class NewThemeFragment : Fragment(R.layout.fragment_new_theme) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view?.setBackgroundColor(requireContext().getColorAttr(android.R.attr.colorBackground))
         observeViewModel()
 
         binding.textInputThemeName.doAfterTextChanged {

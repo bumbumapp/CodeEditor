@@ -106,8 +106,11 @@ private fun Context.resolveDataColumn(
     return contentResolver.query(
         uri, arrayOf(COLUMN_DATA), selection, selectionArgs, null,
     ).use { cursor ->
-        cursor ?: return ""
-        cursor.moveToFirst()
-        return@use cursor.getStringOrNull(cursor.getColumnIndex(COLUMN_DATA)).orEmpty()
+        if (cursor?.count == 0) {
+            return ""
+        } else {
+            cursor?.moveToFirst()
+            return@use cursor?.getStringOrNull(cursor.getColumnIndex(COLUMN_DATA)).orEmpty()
+        }
     }
 }

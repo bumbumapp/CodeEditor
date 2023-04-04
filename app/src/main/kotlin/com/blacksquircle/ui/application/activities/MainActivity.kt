@@ -41,20 +41,13 @@ import com.blacksquircle.ui.feature.explorer.ui.fragments.ExplorerFragment
 import com.blacksquircle.ui.feature.explorer.ui.viewmodel.ExplorerViewModel
 import com.blacksquircle.ui.utils.extensions.multiplyDraggingEdgeSizeBy
 import com.blacksquircle.ui.utils.extensions.resolveFilePath
-import com.blacksquircle.ui.utils.inappupdate.InAppUpdate
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.io.File
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), DrawerHandler {
-
-    @Inject
-    lateinit var inAppUpdate: InAppUpdate
-
     private val mainViewModel by viewModels<MainViewModel>()
     private val explorerViewModel by viewModels<ExplorerViewModel>()
     private val editorViewModel by viewModels<EditorViewModel>()
@@ -77,13 +70,16 @@ class MainActivity : AppCompatActivity(), DrawerHandler {
 
         binding.drawerLayout?.multiplyDraggingEdgeSizeBy(2)
 
-        inAppUpdate.checkForUpdates(this) {
-            Snackbar.make(binding.root, R.string.message_in_app_update_ready, Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.action_restart) { inAppUpdate.completeUpdate() }
-                .show()
+//        inAppUpdate.checkForUpdates(this) {
+//            Snackbar.make(binding.root, R.string.message_in_app_update_ready, Snackbar.LENGTH_INDEFINITE)
+//                .setAction(R.string.action_restart) { inAppUpdate.completeUpdate() }
+//                .show()
+//        }
+        try {
+            handleIntent(intent)
+        } catch (e: Exception) {
+            Log.d("TAG", "Erros" + e.message)
         }
-
-        handleIntent(intent)
     }
 
     override fun onNewIntent(intent: Intent?) {

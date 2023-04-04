@@ -16,11 +16,13 @@
 
 package com.blacksquircle.ui.feature.settings.ui.adapters.item
 
+import android.widget.ImageView
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 
 data class PreferenceItem(
     @StringRes val title: Int,
     @StringRes val subtitle: Int,
+    @IdRes val image: Int,
     @IdRes val navigationId: Int
 )

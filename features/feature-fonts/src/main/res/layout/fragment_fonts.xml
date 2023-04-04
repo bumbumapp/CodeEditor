@@ -50,14 +50,14 @@
             android:layout_height="92dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_file_find"
-            app:tint="?colorOnBackground" />
+            app:tint="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_gravity="center"
-            android:textColor="?colorOnBackground"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             android:text="@string/message_no_result" />

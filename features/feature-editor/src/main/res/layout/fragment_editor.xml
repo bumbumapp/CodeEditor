@@ -307,14 +307,14 @@
             android:layout_marginBottom="16dp"
             android:src="@drawable/ic_file_find"
             android:id="@+id/empty_view_image"
-            app:tint="?colorOnBackground"/>
+            app:tint="@color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="56dp"
-            android:textColor="?colorOnBackground"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             android:text="@string/message_no_open_files"

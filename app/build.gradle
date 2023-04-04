@@ -22,25 +22,21 @@ plugins {
 }
 
 android {
-    compileSdkVersion versions.compileSdk
+    compileSdkVersion 31
     buildToolsVersion versions.buildTools
 
     defaultConfig {
-        applicationId "com.blacksquircle.ui"
+        applicationId "com.bumbumapps.codeeditorpro"
 
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdkVersion 21
+        targetSdkVersion 31
 
-        versionCode 10011
-        versionName "2022.1.2"
+        versionCode 1
+        versionName "1.0.0"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
-    flavorDimensions "store"
-    productFlavors {
-        googlePlay { dimension "store" }
-        fdroid { dimension "store" }
-    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -61,8 +57,6 @@ android {
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
-        fdroid.java.srcDirs += 'src/fdroid/kotlin'
-        googlePlay.java.srcDirs += 'src/googlePlay/kotlin'
         test.java.srcDirs += 'src/test/kotlin'
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
@@ -80,8 +74,7 @@ dependencies {
     implementation library.activity
     implementation library.fragment
 
-    // Google Play
-    googlePlayImplementation library.playcore
+
 
     // UI
     implementation library.appcompat

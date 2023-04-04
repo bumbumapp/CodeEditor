@@ -16,6 +16,7 @@
 
 package com.blacksquircle.ui.feature.settings.ui.viewmodel
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModel
 import com.blacksquircle.ui.core.data.storage.keyvalue.SettingsManager
 import com.blacksquircle.ui.feature.settings.R
@@ -32,32 +33,32 @@ class SettingsViewModel @Inject constructor(
     private val settingsManager: SettingsManager
 ) : ViewModel() {
 
+    @SuppressLint("ResourceType")
     private val _headersState = MutableStateFlow(
         listOf(
             PreferenceItem(
                 R.string.pref_header_application_title,
                 R.string.pref_header_application_summary,
+                R.drawable.ic_settings,
                 R.id.applicationFragment
             ),
             PreferenceItem(
                 R.string.pref_header_editor_title,
                 R.string.pref_header_editor_summary,
+                R.drawable.ic_edit,
                 R.id.editorFragment
             ),
             PreferenceItem(
                 R.string.pref_header_codeStyle_title,
                 R.string.pref_header_codeStyle_summary,
+                R.drawable.codestyle,
                 R.id.codeStyleFragment
             ),
             PreferenceItem(
                 R.string.pref_header_files_title,
                 R.string.pref_header_files_summary,
+                R.drawable.ic_file_image,
                 R.id.filesFragment
-            ),
-            PreferenceItem(
-                R.string.pref_header_about_title,
-                R.string.pref_header_about_summary,
-                R.id.aboutFragment
             )
         )
     )
