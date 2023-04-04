@@ -1,3 +1,7 @@
+## Thanks
+
+[Squircle IDE contributors](https://github.com/massivemadness/Squircle-CE)
+
 ## Licence
 
    Copyright 2022 Squircle IDE contributors.
