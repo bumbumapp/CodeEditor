@@ -22,25 +22,19 @@ plugins {
 ext.libraryGroupId = "com.blacksquircle.ui"
 ext.libraryArtifactId = "language-plaintext"
 
-apply from: rootProject.file("gradle/publish.gradle")
 
 android {
-    compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
+    namespace "com.blacksquircle.ui.language.plaintext"
+    compileSdk versions.compileSdk
 
-    group libraryGroupId
-    version versions.publishVersionName
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
-
-        versionCode versions.publishVersionCode
-        versionName versions.publishVersionName
+        minSdk versions.minSdk
 
         consumerProguardFiles 'consumer-rules.pro'
-
-        archivesBaseName = libraryArtifactId
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -54,4 +48,10 @@ dependencies {
 
     // Modules
     api project(':languages:language-base')
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
 }

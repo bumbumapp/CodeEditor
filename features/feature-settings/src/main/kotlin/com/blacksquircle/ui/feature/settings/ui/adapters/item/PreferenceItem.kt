@@ -16,7 +16,6 @@
 
 package com.blacksquircle.ui.feature.settings.ui.adapters.item
 
-import android.widget.ImageView
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 

@@ -30,7 +30,7 @@ val Context.applicationName: String
 
 val Context.versionName: String
     get() = try {
-        packageManager.getPackageInfo(packageName, 0).versionName
+        packageManager.getPackageInfo(packageName, 0).versionName ?: ""
     } catch (e: PackageManager.NameNotFoundException) {
         ""
     }

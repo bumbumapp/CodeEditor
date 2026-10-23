@@ -25,7 +25,13 @@ import com.blacksquircle.ui.feature.themes.domain.model.ThemeModel
 import com.blacksquircle.ui.language.base.model.ColorScheme
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
+// Color.parseColor is an Android framework call: run on Robolectric instead of the stub android.jar.
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [34])
 class ThemeConverterTest {
 
     @Test
@@ -51,7 +57,7 @@ class ThemeConverterTest {
             keywordColor = "#FF3000",
             typeColor = "#FF3000",
             langConstColor = "#FF3000",
-            preprocessorColor = "FF3000",
+            preprocessorColor = "#FF3000",
             variableColor = "#FF3000",
             methodColor = "#FF3000",
             stringColor = "#FF3000",
@@ -85,8 +91,8 @@ class ThemeConverterTest {
                 keywordColor = "#FF3000".toColorInt(),
                 typeColor = "#FF3000".toColorInt(),
                 langConstColor = "#FF3000".toColorInt(),
-                preprocessorColor = "FF3000".toColorInt(),
-                variableColor = "FF3000".toColorInt(),
+                preprocessorColor = "#FF3000".toColorInt(),
+                variableColor = "#FF3000".toColorInt(),
                 methodColor = "#FF3000".toColorInt(),
                 stringColor = "#FF3000".toColorInt(),
                 commentColor = "#FF3000".toColorInt(),
@@ -157,7 +163,7 @@ class ThemeConverterTest {
                 keywordColor = "#FF3000".toColorInt(),
                 typeColor = "#FF3000".toColorInt(),
                 langConstColor = "#FF3000".toColorInt(),
-                preprocessorColor = "FF3000".toColorInt(),
+                preprocessorColor = "#FF3000".toColorInt(),
                 variableColor = "#FF3000".toColorInt(),
                 methodColor = "#FF3000".toColorInt(),
                 stringColor = "#FF3000".toColorInt(),
@@ -185,7 +191,7 @@ class ThemeConverterTest {
             keywordColor = "#FF3000",
             typeColor = "#FF3000",
             langConstColor = "#FF3000",
-            preprocessorColor = "FF3000",
+            preprocessorColor = "#FF3000",
             variableColor = "#FF3000",
             methodColor = "#FF3000",
             stringColor = "#FF3000",
@@ -245,7 +251,7 @@ class ThemeConverterTest {
                 keywordColor = "#FF3000",
                 typeColor = "#FF3000",
                 langConstColor = "#FF3000",
-                preprocessorColor = "FF3000",
+                preprocessorColor = "#FF3000",
                 variableColor = "#FF3000",
                 methodColor = "#FF3000",
                 stringColor = "#FF3000",
@@ -280,7 +286,7 @@ class ThemeConverterTest {
                 keywordColor = "#FF3000".toColorInt(),
                 typeColor = "#FF3000".toColorInt(),
                 langConstColor = "#FF3000".toColorInt(),
-                preprocessorColor = "FF3000".toColorInt(),
+                preprocessorColor = "#FF3000".toColorInt(),
                 variableColor = "#FF3000".toColorInt(),
                 methodColor = "#FF3000".toColorInt(),
                 stringColor = "#FF3000".toColorInt(),

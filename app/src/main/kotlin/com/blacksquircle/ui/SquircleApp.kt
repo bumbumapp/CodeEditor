@@ -20,4 +20,10 @@ import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class SquircleApp : Application()
+class SquircleApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        // Android 15+ draws edge-to-edge: pad activity content by the system bar insets.
+        EdgeToEdgeCallbacks.register(this)
+    }
+}

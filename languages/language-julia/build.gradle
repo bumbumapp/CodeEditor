@@ -22,15 +22,17 @@ plugins {
 ext.libraryGroupId = "com.blacksquircle.ui"
 ext.libraryArtifactId = "language-julia"
 
-apply from: rootProject.file("gradle/publish.gradle")
 
 android {
-    compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
+    namespace "com.blacksquircle.ui.language.julia"
+    compileSdk versions.compileSdk
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdk versions.minSdk
 
         consumerProguardFiles 'consumer-rules.pro'
     }
@@ -60,4 +62,10 @@ dependencies {
 
     // Modules
     api project(':languages:language-base')
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
 }

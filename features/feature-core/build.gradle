@@ -22,12 +22,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
+    namespace "com.blacksquircle.ui.core"
+    compileSdk versions.compileSdk
 
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdk versions.minSdk
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
@@ -44,11 +43,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = '11'
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -111,4 +107,10 @@ dependencies {
     implementation project(':languages:language-visualbasic')
     implementation project(':languages:language-xml')
     implementation project(':languages:language-yaml')
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
 }
