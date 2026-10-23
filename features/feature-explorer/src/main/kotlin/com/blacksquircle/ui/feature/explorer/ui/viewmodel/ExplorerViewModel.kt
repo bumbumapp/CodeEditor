@@ -23,6 +23,7 @@ import androidx.lifecycle.viewModelScope
 import com.blacksquircle.ui.core.data.storage.keyvalue.SettingsManager
 import com.blacksquircle.ui.core.ui.extensions.launchEvent
 import com.blacksquircle.ui.core.ui.lifecycle.SingleLiveEvent
+import com.blacksquircle.ui.core.ui.lifecycle.call
 import com.blacksquircle.ui.feature.explorer.R
 import com.blacksquircle.ui.feature.explorer.data.utils.Operation
 import com.blacksquircle.ui.feature.explorer.data.utils.replaceList

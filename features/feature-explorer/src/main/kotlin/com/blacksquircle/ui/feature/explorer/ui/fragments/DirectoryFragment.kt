@@ -37,6 +37,7 @@ import com.afollestad.materialdialogs.customview.getCustomView
 import com.blacksquircle.ui.core.ui.adapters.OnItemClickListener
 import com.blacksquircle.ui.core.ui.delegate.viewBinding
 import com.blacksquircle.ui.core.ui.extensions.showToast
+import com.blacksquircle.ui.core.ui.lifecycle.call
 import com.blacksquircle.ui.core.ui.navigation.DrawerHandler
 import com.blacksquircle.ui.feature.explorer.R
 import com.blacksquircle.ui.feature.explorer.data.utils.*

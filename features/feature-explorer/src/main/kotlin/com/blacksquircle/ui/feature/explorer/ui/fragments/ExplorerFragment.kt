@@ -32,6 +32,7 @@ import androidx.navigation.fragment.findNavController
 import com.blacksquircle.ui.core.ui.adapters.TabAdapter
 import com.blacksquircle.ui.core.ui.delegate.viewBinding
 import com.blacksquircle.ui.core.ui.extensions.*
+import com.blacksquircle.ui.core.ui.lifecycle.call
 import com.blacksquircle.ui.core.ui.navigation.BackPressedHandler
 import com.blacksquircle.ui.feature.explorer.R
 import com.blacksquircle.ui.feature.explorer.data.utils.*

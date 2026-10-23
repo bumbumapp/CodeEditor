@@ -51,12 +51,13 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
         pending.set(true)
         super.setValue(t)
     }
+}
 
-    /**
-     * Used for cases where T is Void or Unit, to make calls cleaner.
-     */
-    @MainThread
-    fun call() {
-        value = null
-    }
+/**
+ * Used for Unit events. Emits Unit instead of null: since Lifecycle 2.6 observers are non-null in
+ * Kotlin, and a null value crashed every explorer action (NullPointerException in the observer).
+ */
+@MainThread
+fun SingleLiveEvent<Unit>.call() {
+    value = Unit
 }
