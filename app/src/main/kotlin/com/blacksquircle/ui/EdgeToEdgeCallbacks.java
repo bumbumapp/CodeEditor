@@ -40,7 +40,8 @@ public final class EdgeToEdgeCallbacks implements Application.ActivityLifecycleC
     @Override
     public void onActivityStarted(@NonNull Activity activity) {
         // Leave third-party (ads / consent) activities alone; they handle insets themselves.
-        if (activity.getClass().getName().startsWith("com.google.")) {
+        String name = activity.getClass().getName();
+        if (name.startsWith("com.google.") || name.startsWith("com.huawei.")) {
             return;
         }
         apply(activity.findViewById(android.R.id.content));

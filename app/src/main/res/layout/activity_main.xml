@@ -15,16 +15,18 @@
   ~ limitations under the License.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".application.activities.MainActivity">
 
     <!-- Use nested layout because of Android Gradle Plugin 4.0 restrictions -->
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:id="@+id/drawer_layout">
 
         <fragment
@@ -46,4 +48,11 @@
 
     </androidx.drawerlayout.widget.DrawerLayout>
 
-</FrameLayout>
+    <!-- Huawei build: Petal banner (hidden until filled). Play build: stays gone. -->
+    <FrameLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

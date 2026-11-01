@@ -19,6 +19,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
         classpath plugin.android_gradle_plugin
@@ -33,6 +34,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 }
 

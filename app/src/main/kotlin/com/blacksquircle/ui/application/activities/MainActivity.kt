@@ -25,6 +25,7 @@ import androidx.core.view.GravityCompat
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.blacksquircle.ui.R
+import com.blacksquircle.ui.ads.AdsManager
 import com.blacksquircle.ui.application.dialogs.ConfirmExitDialog
 import com.blacksquircle.ui.application.viewmodel.MainViewModel
 import com.blacksquircle.ui.core.ui.extensions.fragment
@@ -69,6 +70,10 @@ class MainActivity : AppCompatActivity(), DrawerHandler {
             .fragment<ExplorerFragment>(R.id.fragment_explorer)
 
         binding.drawerLayout?.multiplyDraggingEdgeSizeBy(2)
+
+        // Huawei build: Petal banner at the bottom (hidden until filled). Play build: no-op.
+        AdsManager.get(this).init(this)
+        AdsManager.get(this).loadBanner(this, binding.adContainer)
 
 //        inAppUpdate.checkForUpdates(this) {
 //            Snackbar.make(binding.root, R.string.message_in_app_update_ready, Snackbar.LENGTH_INDEFINITE)
@@ -130,6 +135,10 @@ class MainActivity : AppCompatActivity(), DrawerHandler {
         }
         editorViewModel.openPropertiesEvent.observe(this) {
             explorerViewModel.openPropertiesEvent.value = it
+        }
+        editorViewModel.fileSavedEvent.observe(this) {
+            // A saved file is a natural break: capped interstitial (Huawei build only), editing continues after.
+            AdsManager.get(this).onBreakPoint(this) { }
         }
     }
 

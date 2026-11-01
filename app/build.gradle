@@ -31,10 +31,26 @@ android {
         minSdk versions.minSdk
         targetSdk 36
 
-        versionCode 2
+        versionCode 4
         versionName "1.1.0"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    // play = Google Play, hms = Huawei AppGallery (Huawei Ads / Petal, no Google Mobile Services).
+    // Release uses the app's Petal slots (override with -PHMS_BANNER_ID=...); debug builds use Huawei's test slots.
+    flavorDimensions = ['store']
+    productFlavors {
+        play {
+            dimension 'store'
+        }
+        hms {
+            dimension 'store'
+            resValue 'string', 'hms_banner_id', (project.findProperty('HMS_BANNER_ID') ?: 'o1sjddpbil').toString()
+            resValue 'string', 'hms_interstitial_id', (project.findProperty('HMS_INTERSTITIAL_ID') ?: 'a3hsu92c2e').toString()
+            resValue 'string', 'hms_test_banner_id', 'testw6vs28auh3'
+            resValue 'string', 'hms_test_interstitial_id', 'testb4znbuh3n2'
+        }
     }
 
     buildTypes {
@@ -62,11 +78,13 @@ android {
     }
     buildFeatures {
         buildConfig true
+        resValues true
         viewBinding true
     }
 }
 
 dependencies {
+    hmsImplementation 'com.huawei.hms:ads-lite:13.4.91.301'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Core

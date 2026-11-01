@@ -5,3 +5,7 @@
 -keepclassmembernames class androidx.customview.widget.ViewDragHelper {
     private int mEdgeSize;
 }
+# Huawei Ads (hms flavor)
+-keep class com.huawei.openalliance.ad.** { *; }
+-keep class com.huawei.hms.ads.** { *; }
+-dontwarn com.huawei.**

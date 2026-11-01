@@ -62,6 +62,7 @@ class EditorViewModel @Inject constructor(
     val settingsEvent = MutableLiveData<List<SettingsEvent<*>>>() // Настройки
 
     val toastEvent = SingleLiveEvent<Int>() // Отображение сообщений
+    val fileSavedEvent = SingleLiveEvent<Unit>() // A document was written to storage (natural break point)
     val parseEvent = SingleLiveEvent<ParseResult>() // Проверка ошибок
     val contentEvent = SingleLiveEvent<Pair<DocumentContent, PrecomputedTextCompat>>() // Контент загруженного файла
 
@@ -117,6 +118,7 @@ class EditorViewModel @Inject constructor(
                 documentRepository.saveFile(documentContent, params)
                 if (params.local) {
                     toastEvent.value = R.string.message_saved
+                    fileSavedEvent.value = Unit
                 }
             } catch (e: Exception) {
                 Log.e(TAG, e.message, e)
